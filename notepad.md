@@ -1,4 +1,4 @@
-# SocketProgramming
+
 
 ## 프로토콜, 소켓의 타입
 
@@ -18,4 +18,19 @@
      * 데이터의 경계가 존재함 (두 번 전송한 데이터는 두 번 수신함)
      * 한번에 전송 가능한 데이터의 크기가 제한됨
 
+
 ## IP, Port의 표현
+#### IPv4 기반 주소 정보를 저장하는 구조체
+'''
+  struct sockaddr_in{
+    sa_family_t    sin_family;    //주소체계
+    uint16_t       sin_port;      //16bit TCP, UDP port
+    struct in_addr sin_addr;      //32bit IP
+    char           sin_zero[8];   //사용 안함
+  }
+'''
+'''
+  struct in_addr{
+    in_addr_t     s_addr;         //32bit IPv4
+  }
+'''
