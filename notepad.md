@@ -44,6 +44,7 @@
   1. 16bit, 32bit의 호스트 ↔ 네트워크 바이트 순서 변환
 ```
 #include <arpa/inet.h>
+
 unsigned short htons(unsigned short);
 unsigned short ntohs(unsigned short);
 unsigned long htonl(unsigned long);
@@ -53,6 +54,7 @@ unsigned long ntohl(unsigned long);
   2. IP의 문자열 정보 ↔ 네트워크 바이트 순서의 정수 변환
 ```
 #include <arpa/inet.h>
+
 in_addr_t inet_addr(const char* string);
 int inet_aton(const char* string, struct in_addr* addr);
 char* inet_ntoa(struct in_addr* addr);
@@ -71,6 +73,9 @@ addr.sin_port = htons(atoi(char_port));
 #### 소켓 함수 호출순서
   1. 서버 소켓
 ```
+#include <sys/socket.h>
+#include <unistd.h>
+
 int socket(int domain, int type, int protocol);
 int bind(int sockfd, struct sockaddr* myaddr, socklen_t addrlen);
 int listen(int sock, int backlog);
@@ -82,6 +87,9 @@ int close(int fd);
 
   2. 클라이언트 소켓
 ```
+#include <sys/socket.h>
+#include <unistd.h>
+
 int socket(int domain, int type, int protocol);
 int connect(int sock, struct sockaddr* servaddr, socklen_t addrlen);
 //ssize_t write(int fd, const void* buf, size_t nbytes);
