@@ -107,7 +107,7 @@ int close(int fd);
   * TCP/UDP 계층: 대량의 패킷을 송수신하기 위한 프로토콜. IP가 탐색한 경로를 기준으로 데이터의 송수신을 담당한다.
   * Application 계층: 프로그래머가 정의한 서버-클라이언트 간의 프로토콜
 
-#### TCP 이론
+#### TCP Flow Control
   1. 연결 성립 (Three-way handshaking)
   ![image](https://user-images.githubusercontent.com/55453184/164881756-49b93f86-dede-4758-abcb-e3f26ad8d122.png)
     1. [SYN] SEQ: 1000, ACK: -   
@@ -119,3 +119,8 @@ int close(int fd);
     2. 일정 시간 내에 대상으로부터 패킷을 받지 못하면 Time out이 발생하고 이전에 보냈던 패킷을 재전송한다.   
     ![image](https://user-images.githubusercontent.com/55453184/164882684-409de9a2-2d15-4dc1-9b0f-ad7560895113.png)
 
+  3. 연결 종료 (Four-way handshaking)
+    1. host A [FIN] SEQ: 5000, ACK: -
+    2. host B [ACK] SEQ: 7500, ACK: 5001
+    3. host B [FIN] SEQ: 7501, ACK: 5001
+    4. host A [ACK] SEQ: 5001, ACK: 7502
