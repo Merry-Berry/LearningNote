@@ -96,3 +96,4 @@ int connect(int sock, struct sockaddr* servaddr, socklen_t addrlen);
 //ssize_t read(int fd, void* buf, size-t nbytes);
 int close(int fd);
 ```
+![image](https://user-images.githubusercontent.com/55453184/164879633-79713ba8-2cd4-462d-8151-64281962da23.png)
