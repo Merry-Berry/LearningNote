@@ -116,6 +116,6 @@ int close(int fd);
     
   2. 데이터 송수신
     1. ACK = SEQ + 수신한 바이트 크기
-    2. 일정 시간 내에 대상으로부터 패킷을 받지 못하면 Time out이 발생하고 이전에 보냈던 패킷을 재전송한다.
+    2. 일정 시간 내에 대상으로부터 패킷을 받지 못하면 Time out이 발생하고 이전에 보냈던 패킷을 재전송한다.   
     ![image](https://user-images.githubusercontent.com/55453184/164882684-409de9a2-2d15-4dc1-9b0f-ad7560895113.png)
 
