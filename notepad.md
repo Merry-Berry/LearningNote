@@ -111,5 +111,6 @@ int close(int fd);
   1. 연결 성립 (Three-way handshaking)
   ![image](https://user-images.githubusercontent.com/55453184/164881756-49b93f86-dede-4758-abcb-e3f26ad8d122.png)
     1. [SYN] SEQ: 1000, ACK: -
+    
     2. [SYN + ACK] SEQ: 2000, ACK: 1001 (ACK = 1의 SEQ + 1)
     3. [ACK] SEQ: 1001, ACK: 2001 (SEQ = 이전에 보낸 SEQ + 1, ACK = 2의 SEQ + 1)
