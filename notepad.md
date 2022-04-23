@@ -111,5 +111,11 @@ int close(int fd);
   1. 연결 성립 (Three-way handshaking)
   ![image](https://user-images.githubusercontent.com/55453184/164881756-49b93f86-dede-4758-abcb-e3f26ad8d122.png)
     1. [SYN] SEQ: 1000, ACK: -   
-    2. [SYN + ACK] SEQ: 2000, ACK: 1001 (ACK = 1의 SEQ + 1)   
+    2. [SYN + ACK] SEQ: 2000, ACK: 1001 (ACK = 1의 SEQ + 1 = 상대가 다음에 전송할 SEQ)   
     3. [ACK] SEQ: 1001, ACK: 2001 (SEQ = 이전에 보낸 SEQ + 1, ACK = 2의 SEQ + 1)   
+    
+  2. 데이터 송수신
+    1. ACK = SEQ + 수신한 바이트 크기
+    2. 일정 시간 내에 대상으로부터 패킷을 받지 못하면 Time out이 발생하고 이전에 보냈던 패킷을 재전송한다.
+    ![image](https://user-images.githubusercontent.com/55453184/164882684-409de9a2-2d15-4dc1-9b0f-ad7560895113.png)
+
