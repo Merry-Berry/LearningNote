@@ -96,4 +96,20 @@ int connect(int sock, struct sockaddr* servaddr, socklen_t addrlen);
 //ssize_t read(int fd, void* buf, size-t nbytes);
 int close(int fd);
 ```
+
+
+## TCP/IP
+
+#### TCP/IP Protocol Stack
 ![image](https://user-images.githubusercontent.com/55453184/164879633-79713ba8-2cd4-462d-8151-64281962da23.png)
+  * Link 계층: 물리적 영역의 표준(WAN, MAN, LAN)
+  * IP 계층: 비 연결지향형 프로토콜. 목적지로 데이터를 전송하기 위해 경로를 탐색하며, 데이터 손실의 우려가 있다.
+  * TCP/UDP 계층: 대량의 패킷을 송수신하기 위한 프로토콜. IP가 탐색한 경로를 기준으로 데이터의 송수신을 담당한다.
+  * Application 계층: 프로그래머가 정의한 서버-클라이언트 간의 프로토콜
+
+#### TCP 이론
+  1. 연결 성립 (Three-way handshaking)
+  ![image](https://user-images.githubusercontent.com/55453184/164881756-49b93f86-dede-4758-abcb-e3f26ad8d122.png)
+    1. [SYN] SEQ: 1000, ACK: -
+    2. [SYN + ACK] SEQ: 2000, ACK: 1001 (ACK = 1의 SEQ + 1)
+    3. [ACK] SEQ: 1001, ACK: 2001 (SEQ = 이전에 보낸 SEQ + 1, ACK = 2의 SEQ + 1)
