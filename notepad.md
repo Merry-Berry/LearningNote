@@ -22,7 +22,7 @@
 ## IP, Port의 표현
 
 #### IPv4 기반 주소 정보를 저장하는 구조체
-```
+```C
   struct sockaddr_in{
     sa_family_t    sin_family;    //Address Family (AF_INET, AF_INET6)
     uint16_t       sin_port;      //16bit TCP, UDP port
@@ -30,7 +30,7 @@
     char           sin_zero[8];   //사용 안함. 반드시 memset()을 사용하여 해당 구조체 초기화
   }
 ```
-```
+```C
   struct in_addr{
     in_addr_t     s_addr;         //32bit IPv4
   }
@@ -42,7 +42,7 @@
 
 #### 바이트 순서 변환
   1. 16bit, 32bit의 호스트 ↔ 네트워크 바이트 순서 변환
-```
+```C
 #include <arpa/inet.h>
 
 unsigned short htons(unsigned short);
@@ -52,7 +52,7 @@ unsigned long ntohl(unsigned long);
 ```
 
   2. IP의 문자열 정보 ↔ 네트워크 바이트 순서의 정수 변환
-```
+```C
 #include <arpa/inet.h>
 
 in_addr_t inet_addr(const char* string);
@@ -61,7 +61,7 @@ char* inet_ntoa(struct in_addr* addr);
 ```
 
 #### 인터넷 주소의 초기화
-```
+```C
 struct sockaddr_in addr;
 memset(&addr, 0, sizeof(addr)); //sin_zero[8]을 0으로 초기화
 addr.sin_family = AF_INET;
@@ -72,7 +72,7 @@ addr.sin_port = htons(atoi(char_port));
 
 #### 소켓 함수 호출순서
   1. 서버 소켓
-```
+```C
 #include <sys/socket.h>
 #include <unistd.h>
 
@@ -86,7 +86,7 @@ int close(int fd);
 ```
 
   2. 클라이언트 소켓
-```
+```C
 #include <sys/socket.h>
 #include <unistd.h>
 
