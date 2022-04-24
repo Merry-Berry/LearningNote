@@ -124,3 +124,13 @@ int close(int fd);
     2. host B [ACK] SEQ: 7500, ACK: 5001   
     3. host B [FIN] SEQ: 7501, ACK: 5001   
     4. host A [ACK] SEQ: 5001, ACK: 7502   
+
+#### Half-close
+```C
+#include <sys/socket.h>
+int shutdown(int sock, int howto);
+//howto parameter
+//SHUT_RD to close input stream
+//SHUT_WR to close output stream
+//SHUT_RDWR to close I/O stream
+```
