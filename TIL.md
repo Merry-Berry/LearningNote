@@ -4,7 +4,7 @@
     파일 디스크립터들의 정보를 등록하고, 그들의 상태를 비트 단위로 관찰하는 변수
     ![image](https://user-images.githubusercontent.com/55453184/165032393-ad28879c-70b8-40d5-84c9-6cdbfe2a2121.png)
     ```C
-    \\fd_set형 변수를 조작하는 메크로 함수
+    //fd_set형 변수를 조작하는 메크로 함수
     FD_ZERO(fd_set* fdset); //fd_set형 변수의 모든 비트를 0으로 초기화
     FD_SET(int fd, fd_set* fdset); //fd_set형 변수에 파일 디스크립터 fd 정보를 등록
     FD_CLR(int fd, fd_set* fdset); //fd_set형 변수에 파일 디스크립터 fd 정보를 삭제
