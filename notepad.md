@@ -134,3 +134,11 @@ int shutdown(int sock, int howto);
 //SHUT_WR to close output stream
 //SHUT_RDWR to close I/O stream
 ```
+
+
+## DNS & IP
+#### Domain Name System
+  * Domain Name: 서버를 쉽게 구분하기 위해 IP 주소를 대신하여 기억하기 좋은 형태의 이름으로 표현
+  * Domain Name Server: Domain name을 IP 주소로 변환해주는 서버. 먼저 Default DNS 서버가 해당 도메인에 대한 IP 주소를 찾고,
+                        찾을 수 없는 경우 다른 DNS 서버에 질의한다.
+![image](https://user-images.githubusercontent.com/55453184/165026500-96b7143e-7bb1-45cd-8d6c-3201ad1c661e.png)
