@@ -136,9 +136,35 @@ int shutdown(int sock, int howto);
 ```
 
 
-## DNS & IP
+## DNS
 #### Domain Name System
   * Domain Name: 서버를 쉽게 구분하기 위해 IP 주소를 대신하여 기억하기 좋은 형태의 이름으로 표현
   * Domain Name Server: Domain name을 IP 주소로 변환해주는 서버. 먼저 Default DNS 서버가 해당 도메인에 대한 IP 주소를 찾고,
                         찾을 수 없는 경우 다른 DNS 서버에 질의한다.
 ![image](https://user-images.githubusercontent.com/55453184/165026500-96b7143e-7bb1-45cd-8d6c-3201ad1c661e.png)
+
+#### Domain name과 IP의 변환
+  1. Domain name → IP
+```C
+#include <netdb.h>
+
+struct hostent* gethostbyname(const char* hostname);
+//성공 시 hostent 구조체 주소 값, 실패 시 NULL 반환
+```
+```C
+struct hostent{
+  char* h_name;         //official name
+  char** h_aliases;     //alias list
+  int h_addrtype;       //host address type
+  int h_length;         //host address length
+  char** h_addr_list;   //address list
+}
+```
+
+2. IP → Domain name
+```C
+#include <netdb.h>
+
+struct hostent* gethostbyaddr(const char* addr, socklen_t len, int family);
+//성공 시 hostent 구조체 주소 값, 실패 시 NULL 반환
+```
