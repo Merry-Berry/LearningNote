@@ -54,3 +54,4 @@
 * 요청: rax
 * 인자 순서: rdi->rsi->rdx->rcx>r8->r9->stack
 * 호출: syscall
+* 반환: rax
